@@ -1,3 +1,6 @@
+provider "aws" {
+}
+
 resource "aws_sns_topic" "aws_sns_topic" {
   name = "glacier-sns-topic"
 }
