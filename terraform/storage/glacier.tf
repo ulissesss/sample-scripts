@@ -5,6 +5,10 @@ resource "aws_sns_topic" "aws_sns_topic" {
   name = "glacier-sns-topic"
 }
 
+output "sns" {
+  value = aws_sns_topic.aws_sns_topic.arn
+}
+
 resource "aws_glacier_vault" "departed_emp" {
   name = "DepartedEmp"
 
@@ -25,11 +29,12 @@ resource "aws_glacier_vault" "departed_emp" {
              "glacier:InitiateJob",
              "glacier:GetJobOutput"
           ],
-          "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/DepartedEmp"
+          "Resource": "arn:aws:glacier:us-west-1:564292328108:vaults/DepartedEmp"
        }
     ]
 }
 EOF
+#TODO:  Change "rescource" to aws_sns_topic [Different for every user]
 
   tags = {
     Archive = "DepartedEmp"
