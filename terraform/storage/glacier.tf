@@ -1,13 +1,21 @@
 provider "aws" {
+  region = var.region
 }
 
 resource "aws_sns_topic" "aws_sns_topic" {
-  name = "glacier-sns-topic"
+  name = "vaults"
 }
 
 output "sns" {
-  value = aws_sns_topic.aws_sns_topic.arn
+  value = "Rescource Key: arn:aws:glacier:${trimprefix(aws_sns_topic.aws_sns_topic.arn, "arn:aws:sns:")}/DepartedEmp"
 }
+
+
+#  arn:aws:sns:us-west-1:564292328108:vaults
+#  us-west-1:564292328108:vaults
+#  arn:aws:glacier: + us-west-1:564292328108:vaults + /DepartedEmp
+
+
 
 resource "aws_glacier_vault" "departed_emp" {
   name = "DepartedEmp"
@@ -29,7 +37,8 @@ resource "aws_glacier_vault" "departed_emp" {
              "glacier:InitiateJob",
              "glacier:GetJobOutput"
           ],
-          "Resource": "arn:aws:glacier:us-west-1:564292328108:vaults/DepartedEmp"
+
+          "Resource": "arn:aws:glacier:${trimprefix(aws_sns_topic.aws_sns_topic.arn, "arn:aws:sns:")}/DepartedEmp"
        }
     ]
 }
