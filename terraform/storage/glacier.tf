@@ -43,7 +43,6 @@ resource "aws_glacier_vault" "departed_emp" {
     ]
 }
 EOF
-#TODO:  Change "rescource" to aws_sns_topic [Different for every user]
 
   tags = {
     Archive = "DepartedEmp"
