@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Id": "SourceIP",
+    "Statement": [
+        {
+            "Sid": "SourceIP",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::tekperfect-test-tf-bucket",
+                "arn:aws:s3:::tekperfect-test-tf-bucket/*"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": [
+                        "99.124.158.0/32",
+                        "24.130.254.243/32",
+                        "67.161.12.173/32"
+                    ]
+                }
+            }
+        }
+    ]
+}

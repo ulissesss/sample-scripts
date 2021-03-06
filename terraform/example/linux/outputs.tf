@@ -1,0 +1,12 @@
+output "server_id" {
+  value = aws_instance.server.id
+}
+
+output "server_private_ip" {
+  value = aws_instance.server.private_ip
+
+}
+
+output "elasitc_ip" {
+  value = aws_eip.eip.public_ip
+}
