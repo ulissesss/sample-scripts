@@ -8,6 +8,10 @@ resource "aws_instance" "devops_demo" {
   instance_type = "t2.micro"
   key_name      = aws_key_pair.tf-ubuntu.key_name
 
+tags = {
+        Name = "YOUR NAME Terrafrom Test"
+    }
+
   provisioner "file" {
     source      = "script.sh"
     destination = "/tmp/script.sh"
