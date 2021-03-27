@@ -5,24 +5,15 @@ variable "AWS_SECRET_KEY" {
 }
 
 variable "AWS_REGION" {
-  default = "us-west-1"
+  default = "eu-west-1"
 }
 
 variable "AMIS" {
   type = map(string)
   default = {
-    us-west-1 = "ami-00831fc7c1e3ddc60"
+    us-east-1 = "ami-13be557e"
+    us-west-2 = "ami-06b94666"
+    eu-west-1 = "ami-0d729a60"
   }
 }
 
-variable "PATH_TO_PRIVATE_KEY" {
-  default = "tf-ubuntu"
-}
-
-variable "PATH_TO_PUBLIC_KEY" {
-  default = "tf-ubuntu.pub"
-}
-
-variable "INSTANCE_USERNAME" {
-  default = "ubuntu"
-}
