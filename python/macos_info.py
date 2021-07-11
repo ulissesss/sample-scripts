@@ -90,6 +90,20 @@ def get_serial_number():
     return re.findall(r'"(.*?)"',out.decode())[1]
 
 def main():
+    with open(get_serial_number()+".csv","w") as f:
+        f.write(f"""Uptime, " {get_uptime()}"
+Username, {get_username()}
+Computer Name,{get_computer_name()}
+Ip,{get_ip_address()}
+Public Ip,{get_public_ip()}
+Mac,{get_mac(get_ip_address())}
+OS Version,{get_os_version()}
+""")
+        for items in get_ssid():
+            item = items.split(":")
+            f.write(f'{item[0]},"{item[1]}"\n')
+        f.close()
+
     print(get_computer_name())
     print(get_ip_address())
     print(get_public_ip())
@@ -100,6 +114,7 @@ def main():
     print(get_os_version())
     print(get_mac(get_ip_address()))
     print(get_serial_number())
+    # pass
     
 if __name__ == '__main__':
     main()
