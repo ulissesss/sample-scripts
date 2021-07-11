@@ -82,6 +82,13 @@ def get_mac(ip):
     mac = subprocess.check_output(["arp",ip]).decode()
     return mac[mac.index(ip[-1]+")")+6:mac.index("on")-1]
 
+def get_serial_number():
+    proc1 = subprocess.Popen(['ioreg', '-l'], stdout=subprocess.PIPE)
+    proc2 = subprocess.Popen(['grep', 'IOPlatformSerialNumber'], stdin=proc1.stdout,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    proc1.stdout.close()
+    out, err = proc2.communicate()
+    return re.findall(r'"(.*?)"',out.decode())[1]
+
 def main():
     print(get_computer_name())
     print(get_ip_address())
@@ -92,7 +99,7 @@ def main():
         print(x)
     print(get_os_version())
     print(get_mac(get_ip_address()))
-    # pass
+    print(get_serial_number())
     
 if __name__ == '__main__':
     main()
