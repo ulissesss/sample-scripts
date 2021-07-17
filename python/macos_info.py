@@ -22,26 +22,10 @@ import os
 import re
 import socket
 import subprocess
-
-# @TODO: Step 0: TEST
-# @TODO: Step 1: create functions (and function names) to clearly describe what work is being done
-# @TODO: Step 2: Run those functions, collect the info into ___ format
-# @TODO: Step 3: JSON
-
-
-# For learning to preform tests ...
-
-# def add_a_and_b_then_subtract_c(a, b, c):
-#     '''
-#     Function to explain unit testing
-#     given a, b, and c, add a and b. then subtract c.
-#     '''
-#     return (a + b) - c
-
+from time import sleep
 
 def get_computer_name():
     '''
-
     https://docs.python.org/3/library/os.html#os.uname
     Returns information identifying the current operating system. The return value is an object with
     five attributes:
@@ -91,6 +75,11 @@ def get_public_ip():
 
 
 def get_mac(ip):
+    try:
+        subprocess.run(f'ping {ip}', shell=True,timeout=1,capture_output=False)
+    except:
+        pass
+
     mac = subprocess.check_output(["arp", ip]).decode()
     return mac[mac.index(ip[-1]+")")+6:mac.index("on")-1]
 
@@ -116,8 +105,9 @@ Mac,{get_mac(get_ip_address())}
 OS Version,{get_os_version()}
 """)
         f.close()
+    sleep(1)
 
-    print(get_computer_name())
+    print("\n" + get_computer_name())
     print(get_ip_address())
     print(get_public_ip())
     print(get_uptime())
