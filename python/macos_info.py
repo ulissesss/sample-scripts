@@ -44,6 +44,7 @@ def get_public_ip():
 def get_mac(ip):
     try:
         subprocess.run(f'ping {ip}', shell=True,timeout=1,capture_output=False)
+        time.wait(1)
     except:
         pass
 
