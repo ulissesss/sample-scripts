@@ -22,9 +22,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
-          <img src="pic.jpg" style="width:100%" alt="Avatar">
+          <img src="headshot.jpg" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2>Valerio Ciriminna</h2>
+            <h2>FirstName LastName</h2>
           </div>
         </div>
         <div class="w3-container">
@@ -64,7 +64,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <div class="w3-light-grey w3-round-xlarge">
             <div class="w3-round-xlarge w3-teal" style="height:24px;width:0%"></div>
           </div>
-          <p>Italian</p>
+          <p>German</p>
           <div class="w3-light-grey w3-round-xlarge">
             <div class="w3-round-xlarge w3-teal" style="height:24px;width:0%"></div>
           </div>
@@ -81,11 +81,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Tester Engineer</b></h5>
+          <h5 class="w3-opacity"><b>DevOps Engineer / tekperfect.com</b></h5>
           <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-          <p>Performing disk images with Macrium and updating different versions of Windows.
-Conducting user testing on hardware devices and software in order to detect potential issues and report defects in a timely manner. 
-Using different methodologies of testing (e.g. Regression, Ad hoc and Blackbox testing).</p>
+          <p>Responsible for the management of the entire AWS (Amazon Web Services) infrastructure, which includes 100 + server nodes, 5 databases, DNS using Route 53, OpsWorks for auto deployments, and S3 for image and video storage.</p>
           <hr>
         </div>
         <div class="w3-container">
