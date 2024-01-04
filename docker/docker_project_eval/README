@@ -1,0 +1,5 @@
+#How to run
+
+docker run -d -p 12345:3306 mysql_db
+
+mysql --host=127.0.0.1 --port=12345 -u devops -ppassword
